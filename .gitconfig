@@ -1,0 +1,44 @@
+[user]
+    name = Niklas Keller
+    email = me@kelunik.com
+    signingkey = A90C76A6
+[push]
+    default = current
+[pull]
+    default = current
+[core]
+    editor = /usr/bin/vim
+    excludesfile = ~/.gitignore_global
+    attributesfile = ~/.gitattributes_global
+[rebase]
+    stat = true
+[branch "master"]
+    rebase = true
+[diff "exif"]
+    textconv = exiftool
+[alias]
+    s = status
+    co = checkout
+    pru = "!f() { git fetch -fu origin refs/pull/$1/head:pr/$1; git checkout pr/$1; } ; f"
+    fix = commit --amend --no-edit
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = red reverse
+    local = blue
+    remote = green
+
+[merge]
+    log = true
+    tool = intellij
+[mergetool "intellij"]
+    cmd = /opt/phpStorm/bin/phpstorm.sh merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+    trustExitCode = true
+
+[diff]
+    tool = intellij
+[difftool "intellij"]
+    cmd = /opt/phpStorm/bin/phpstorm.sh diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
