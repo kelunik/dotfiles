@@ -4,6 +4,8 @@ See also https://www.atlassian.com/git/tutorials/dotfiles.
 
 ## Setup
 
+### Initial Setup
+
 ```bash
 # Initialize Git repository
 git init --bare $HOME/.cfg.git
@@ -17,6 +19,8 @@ config config --local status.showUntrackedFiles no
 # Permanently enable the alias by loading it on startup
 echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg.git/ --work-tree=$HOME'" >> $HOME/.zshrc
 ```
+
+### New System
 
 ```bash
 # Alias git, so --git-dir isn't required for every command
